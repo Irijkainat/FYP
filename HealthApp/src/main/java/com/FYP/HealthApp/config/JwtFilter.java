@@ -59,7 +59,8 @@ public class JwtFilter extends OncePerRequestFilter {
             if (!request.getRequestURI().startsWith("/register") &&
                     !request.getRequestURI().startsWith("/login") &&
                     !request.getRequestURI().startsWith("/patient") &&
-                    !request.getRequestURI().startsWith("/vitals")
+                    !request.getRequestURI().startsWith("/vitals") &&
+                    !request.getRequestURI().startsWith("/lab/reports")
             ) {
                 response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
                 response.getWriter().write("Missing Authorization Header");
