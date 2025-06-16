@@ -11,10 +11,4 @@ class HealthAppApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-//	@Test
-//	public void testFindByVitalId() {
-//		List<ObservedValuesVital> results = ObservedValuesVitalRepository.findByVitalId(1L);
-//		assertFalse(results.isEmpty());
-//	}
-
 }

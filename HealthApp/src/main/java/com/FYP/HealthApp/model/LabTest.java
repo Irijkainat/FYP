@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 public class LabTest {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        @Column(name = "LabTestId")
+        @Column(name = "ID")
         private Long labTestId;
 
         @Column(name = "LabId")

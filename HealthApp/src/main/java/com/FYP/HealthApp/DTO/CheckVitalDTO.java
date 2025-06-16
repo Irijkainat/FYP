@@ -7,7 +7,10 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class VitalTypeDTO {
-    private Long vitalId;
-    private String typeName;
+public class CheckVitalDTO {
+
+    private Long  vitalId;
+    private String gender;
+    private Integer age;
+    private Double value;
 }

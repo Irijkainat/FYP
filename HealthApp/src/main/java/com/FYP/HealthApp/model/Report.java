@@ -17,20 +17,18 @@ import java.time.LocalTime;
 public class Report {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ReportId")
+    @Column(name = "ID")
     private Long reportId;
 
     @Column(name = "ReportName", nullable = false)
     private String reportName;
 
-    @Column(name = "ReportDate")
-    private LocalDate reportDate;
-
-    @Column(name = "ReportTime")
-    private LocalTime reportTime;
 
     @ManyToOne
     @JoinColumn(name = "RecommendId", nullable = true)
     private Recommend recommend;
 
+    @ManyToOne
+    @JoinColumn(name = "PatientId", referencedColumnName = "ID")
+    private Patient patient;
 }

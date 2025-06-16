@@ -4,14 +4,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class PatientDTO {
+public class PatientVitalEntryDTO {
     private Long patientId;
-    private String fullName;
-    private LocalDateTime dob;
     private String gender;
+    private Integer age;
+    private List<SingleVitalEntryDTO> vitals;
 }

@@ -13,10 +13,10 @@ import lombok.NoArgsConstructor;
 public class Lab {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "LabId")
+    @Column(name = "ID")
     private Long labId;
 
 
-    @Column(name = "LabName", nullable = false)
+    @Column(name = "Name", nullable = false)
     private String labName;
 }

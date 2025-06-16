@@ -10,11 +10,12 @@ public class ValueRangesVital {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ValueRanges")
+    @Column(name = "ID")
     private Integer valueRangesId;
 
-    @Column(name = "ObsVId", nullable = false)
-    private Integer obsVId;
+    @ManyToOne
+    @JoinColumn(name = "VitalId", nullable = false)
+    private Vitals vital;
 
     @Column(name = "Gender", nullable = false)
     private String gender;

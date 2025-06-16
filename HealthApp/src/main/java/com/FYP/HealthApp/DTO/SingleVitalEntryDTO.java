@@ -1,6 +1,4 @@
 package com.FYP.HealthApp.DTO;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,15 +9,10 @@ import java.time.LocalTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ObservedValueDTO {
-    private Long patientVitalId;
+public class SingleVitalEntryDTO {
+    private String vitalName;
+    private String vitalTypeName;
     private Double value;
-
-    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate date;
-
-    @JsonFormat(pattern = "HH:mm:ss")
     private LocalTime time;
-
-    private Long vitalTypeId;
 }

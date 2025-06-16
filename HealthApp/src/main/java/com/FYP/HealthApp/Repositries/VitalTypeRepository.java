@@ -7,9 +7,12 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface VitalTypeRepository extends JpaRepository<VitalType, Long> {
     @Query("SELECT vt FROM VitalType vt WHERE vt.vital.vitalId = :vitalId")
     List<VitalType> findByVitalId(@Param("vitalId") Long vitalId);
+    Optional<VitalType> findByTypeNameAndVital_VitalId(String typeName, Long vitalId);
+
 }

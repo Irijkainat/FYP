@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 public class Recommend {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "RecommendId")
+    @Column(name = "ID")
     private Long recommendId;
 
     @Column(name = "DoctorId")

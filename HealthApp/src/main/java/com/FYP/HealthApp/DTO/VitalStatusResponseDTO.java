@@ -4,17 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class VitalDTO {
+public class VitalStatusResponseDTO {
     private String vitalName;
-    private String vitalTypeName;
+    private String vitalType;
     private Double value;
-    private LocalDate date;
-    private LocalTime time;
-    private Boolean isCritical;
+    private boolean critical;
 }

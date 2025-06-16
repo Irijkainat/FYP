@@ -16,7 +16,7 @@ public class VitalType {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "VitalTypeId")
+    @Column(name = "ID")
     private Long vitalTypeId;
 
     @ManyToOne

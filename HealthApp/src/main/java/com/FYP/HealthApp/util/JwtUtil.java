@@ -11,9 +11,9 @@ import java.util.Map;
 @Component
 public class JwtUtil {
 
-    private final String SECRET_KEY = "my_super_secret"; // 🔐 You can replace it with anything
+    private final String SECRET_KEY = "my_super_secret";
 
-    private final long EXPIRATION_TIME = 86400000; // 1 day in milliseconds
+    private final long EXPIRATION_TIME = 86400000;
 
     public String generateToken(String username, String role) {
         Map<String, Object> claims = new HashMap<>();

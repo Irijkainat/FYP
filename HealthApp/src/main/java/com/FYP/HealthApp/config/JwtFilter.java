@@ -34,16 +34,14 @@ public class JwtFilter extends OncePerRequestFilter {
 
             try {
                 String username = jwtUtil.extractUsername(token);
-                String role = jwtUtil.extractUserRole(token); // 👈 extract role
+                String role = jwtUtil.extractUserRole(token);
 
                 System.out.println("Authenticated user: " + username + " (" + role + ")");
-
-// 🔐 Add role as authority
                 UsernamePasswordAuthenticationToken authentication =
                         new UsernamePasswordAuthenticationToken(
                                 username,
                                 null,
-                                Collections.singleton(() -> "ROLE_" + role) // 👈 Spring needs "ROLE_" prefix
+                                Collections.singleton(() -> "ROLE_" + role)
                         );
 
                 authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
@@ -55,12 +53,12 @@ public class JwtFilter extends OncePerRequestFilter {
                 return;
             }
         } else {
-            // Block all non-token requests except register/login
             if (!request.getRequestURI().startsWith("/register") &&
                     !request.getRequestURI().startsWith("/login") &&
                     !request.getRequestURI().startsWith("/patient") &&
                     !request.getRequestURI().startsWith("/vitals") &&
-                    !request.getRequestURI().startsWith("/lab/reports")
+                    !request.getRequestURI().startsWith("/lab/reports") &&
+                    !request.getRequestURI().startsWith("/doctor")
             ) {
                 response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
                 response.getWriter().write("Missing Authorization Header");

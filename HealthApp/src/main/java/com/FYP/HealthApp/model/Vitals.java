@@ -16,10 +16,10 @@ public class Vitals {
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        @Column(name = "VitalId")
+        @Column(name = "ID")
         private Long vitalId;
 
-        @Column(name = "VitalName", nullable = false)
+        @Column(name = "Name", nullable = false)
         private String vitalName;
     }
 

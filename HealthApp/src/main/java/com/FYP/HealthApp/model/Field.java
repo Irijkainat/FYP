@@ -13,13 +13,13 @@ import lombok.NoArgsConstructor;
 public class Field {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "FieldId")
+    @Column(name = "ID")
     private Long fieldId;
 
     @Column(name = "LabId")
     private Long labId;
 
-    @Column(name = "FieldName", nullable = false)
+    @Column(name = "Name", nullable = false)
     private String fieldName;
 
     @ManyToOne

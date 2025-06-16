@@ -1,4 +1,6 @@
 package com.FYP.HealthApp.DTO;
+
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -6,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class PatientVitalDTO {
-    private Long patientId;
-    private Long vitalId;
+public class AssignDiseaseDTO {
+    private int patientId;
+    private List<Integer> diseaseIds;
 }

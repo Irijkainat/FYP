@@ -10,9 +10,9 @@ import java.time.LocalTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class VitalDTO {
-    private String vitalName;
-    private String vitalTypeName;
+public class ReportFieldDTO {
+    private String reportName;
+    private String fieldName;
     private Double value;
     private LocalDate date;
     private LocalTime time;

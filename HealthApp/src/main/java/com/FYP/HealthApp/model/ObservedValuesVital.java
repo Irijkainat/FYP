@@ -16,7 +16,7 @@ public class ObservedValuesVital {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ObsVId")
+    @Column(name = "ID")
     private Long obsVId;
 
     @ManyToOne

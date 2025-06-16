@@ -1,12 +1,13 @@
 package com.FYP.HealthApp.controller;
 
 import com.FYP.HealthApp.DTO.ManualLabReportDTO;
-import com.FYP.HealthApp.Repositries.FieldRepository;
-import com.FYP.HealthApp.Repositries.LabRepository;
-import com.FYP.HealthApp.Repositries.LabTestRepository;
+import com.FYP.HealthApp.DTO.PatientLabReportDTO;
+import com.FYP.HealthApp.DTO.ReportFieldDTO;
+import com.FYP.HealthApp.Repositries.*;
 import com.FYP.HealthApp.model.Field;
 import com.FYP.HealthApp.model.Lab;
 import com.FYP.HealthApp.model.LabTest;
+import com.FYP.HealthApp.model.Report;
 import com.FYP.HealthApp.service.LabReportService;
 import com.FYP.HealthApp.service.OCRService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,9 +30,12 @@ public class LabReportController {
     private LabTestRepository labTestRepository;
     @Autowired
     private LabRepository labRepository;
-
+    @Autowired
+    private ObservedValuesReportRepository observedValuesReportRepository;
     @Autowired
     private FieldRepository fieldRepository;
+    @Autowired
+    private ReportRepository reportRepository;
 
     @Autowired
     private OCRService ocrService;
@@ -47,24 +51,10 @@ public class LabReportController {
         return ResponseEntity.ok(labTestRepository.save(labTest));
     }
 
-    // 3. FIELD API - Create a Field for a Lab Test
     @PostMapping("/fields")
     public ResponseEntity<Field> createField(@RequestBody Field field) {
-        // Optionally validate Field's LabId exists
         return ResponseEntity.ok(fieldRepository.save(field));
     }
-//
-//    @GetMapping("/fields/{labTestId}")
-//    public ResponseEntity<List<Field>> getFieldsByLabTest(@PathVariable Long labTestId) {
-//        LabTest labTest = labTestRepository.findById(labTestId)
-//                .orElseThrow(() -> new IllegalArgumentException("LabTest ID not found: " + labTestId));
-//        return ResponseEntity.ok(fieldRepository.findByLabTest(labTest));
-//    }
-//    @GetMapping("/labs")
-//    public ResponseEntity<List<Lab>> getAllLabs() {
-//        return ResponseEntity.ok(labRepository.findAll());
-//    }
-
 
     @PostMapping("/manual")
     public ResponseEntity<String> saveManualReport(@RequestBody ManualLabReportDTO dto) {
@@ -90,5 +80,18 @@ public class LabReportController {
             return ResponseEntity.status(500).body("File processing error: " + e.getMessage());
         }
     }
+    @GetMapping("/by-patient/{id}")
+    public ResponseEntity<List<Report>> getReportsByPatientId(@PathVariable Long id) {
+        List<Report> reports = reportRepository.findByPatient_PatientId(id);
+        return ResponseEntity.ok(reports);
+    }
+
+    @GetMapping("/lab/field-values/by-patient/{id}")
+    public List<ReportFieldDTO> getPatientReportFields(@PathVariable Long id) {
+        return observedValuesReportRepository.getFieldDataByPatientId(id);
+    }
+
+
+
 
 }

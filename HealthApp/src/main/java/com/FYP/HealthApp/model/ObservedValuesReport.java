@@ -19,11 +19,10 @@ public class ObservedValuesReport {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ObsRId")
+    @Column(name = "ID")
     private Long obsRId;
 
-//    @Column(name = "FieldId", nullable = false)
-//    private Long fieldId;
+
 @ManyToOne
 @JoinColumn(name = "FieldId", nullable = false)
 private Field field;
@@ -33,12 +32,12 @@ private Field field;
     @JoinColumn(name = "ReportId", nullable = false)
     private Report report;
 
-    @Column(name = "ReportValue", nullable = false)
+    @Column(name = "Value", nullable = false)
     private Double reportValue;
 
-    @Column(name = "ReportDate")
+    @Column(name = "Date")
     private LocalDate reportDate;
 
-    @Column(name = "ReportTime")
+    @Column(name = "Time")
     private LocalTime reportTime;
 }
